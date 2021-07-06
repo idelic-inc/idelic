@@ -61,7 +61,7 @@ export function runApi<R, T>(api: Api<R, T>): Request<T> {
 
   const request = net.request<R, T, ErrorResponse>(
     api.method,
-    `${urlRoot}${api.route}`,
+    new URL(api.route, urlRoot).toString(),
     options
   );
   request.response.catch(catchAuthError);
