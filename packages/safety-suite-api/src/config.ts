@@ -176,6 +176,7 @@ export interface BasicConfig extends NestedConfiguration {
     saf: {
       auth0: {
         clientId: string;
+        connection: string;
       };
       datadog: {
         applicationId: string;
@@ -229,7 +230,8 @@ const exampleConfig: BasicConfig = {
     },
     saf: {
       auth0: {
-        clientId: ''
+        clientId: '',
+        connection: ''
       },
       datadog: {
         applicationId: '',
