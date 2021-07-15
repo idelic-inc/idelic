@@ -68,6 +68,29 @@ export const inviteUser = (
   });
 
 /**
+ * Update user data.
+ * @param user `User` object to update.
+ * @param query Object containing query params for this route.
+ * @param apiOptions Optional options for runApi.
+ * @returns Updated `User` object.
+ */
+export const updateUser = (
+  user: User,
+  query: CustomerSpecificQuery,
+  apiOptions?: ApiOptions
+): Request<ApiResponse<User>> =>
+  runApi({
+    method: 'PUT',
+    urlRoot: 'userManagementUrlRoot',
+    route: '/api/users',
+    apiOptions,
+    requestOptions: {
+      body: user,
+      query
+    }
+  });
+
+/**
  * Resend an invite to a user.
  * @param user `User` object of the user to which the invite will be resent.
  * @param query Object containing query params for this route.
